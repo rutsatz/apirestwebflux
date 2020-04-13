@@ -16,37 +16,37 @@ import reactor.core.publisher.Flux;
  * @author rafael.rutsatz
  *
  */
-@Component
-public class DummyData implements CommandLineRunner {
-
-	private final PlaylistRepository playlistRepository;
-
-	DummyData(PlaylistRepository playlistRepository) {
-		this.playlistRepository = playlistRepository;
-	}
-
-	@Override
-	public void run(String... args) throws Exception {
-
-		playlistRepository
-				/* Deleta tudo ao iniciar. */
-				.deleteAll()
-				/*  */
-				.thenMany(
-						/* Cria um fluxo de stream para inserir no banco. */
-						Flux.just("API Rest Spring Boot", //
-								"Deploy de uma aplicação java IBM Cloud", //
-								"JAva 8", //
-								"Github", //
-								"Spring Security", //
-								"Web Service RESTFULL", //
-								"Bean no Spring Framework")
-								/* Cria as playlists. */
-								.map(nome -> new Playlist(UUID.randomUUID().toString(), nome))//
-								/* Insere elas no banco. */
-								.flatMap(playlistRepository::save))//
-				.subscribe(System.out::println);
-
-	}
-
-}
+//@Component
+//public class DummyData implements CommandLineRunner {
+//
+//	private final PlaylistRepository playlistRepository;
+//
+//	DummyData(PlaylistRepository playlistRepository) {
+//		this.playlistRepository = playlistRepository;
+//	}
+//
+//	@Override
+//	public void run(String... args) throws Exception {
+//
+//		playlistRepository
+//				/* Deleta tudo ao iniciar. */
+//				.deleteAll()
+//				/*  */
+//				.thenMany(
+//						/* Cria um fluxo de stream para inserir no banco. */
+//						Flux.just("API Rest Spring Boot", //
+//								"Deploy de uma aplicação java IBM Cloud", //
+//								"JAva 8", //
+//								"Github", //
+//								"Spring Security", //
+//								"Web Service RESTFULL", //
+//								"Bean no Spring Framework")
+//								/* Cria as playlists. */
+//								.map(nome -> new Playlist(UUID.randomUUID().toString(), nome))//
+//								/* Insere elas no banco. */
+//								.flatMap(playlistRepository::save))//
+//				.subscribe(System.out::println);
+//
+//	}
+//
+//}
