@@ -26,7 +26,7 @@ public class PlaylistServiceImpl implements PlaylistService {
 	}
 
 	@Override
-	public Mono<Playlist> dave(Playlist playlist) {
+	public Mono<Playlist> save(Playlist playlist) {
 		return playlistRepository.save(playlist);
 	}
 

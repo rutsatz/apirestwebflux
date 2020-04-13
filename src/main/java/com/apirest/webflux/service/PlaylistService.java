@@ -21,6 +21,6 @@ public interface PlaylistService {
 	 */
 	Mono<Playlist> findById(String id);
 
-	Mono<Playlist> dave(Playlist playlist);
+	Mono<Playlist> save(Playlist playlist);
 
 }
